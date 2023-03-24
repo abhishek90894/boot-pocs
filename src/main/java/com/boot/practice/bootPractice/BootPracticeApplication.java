@@ -8,6 +8,7 @@ public class BootPracticeApplication {
 
 	public static void main(String[] args)
 	{
+		System.out.println("abhishek srivastava");
 		SpringApplication.run(BootPracticeApplication.class, args);
 	}
 
