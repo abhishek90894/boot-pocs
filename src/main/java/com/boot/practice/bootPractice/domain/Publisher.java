@@ -4,22 +4,31 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import org.springframework.boot.autoconfigure.web.WebProperties;
 
 @Entity
 public class Publisher {
-
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-      private Long pub_id;
-     private String name;
-     private Address address;
+    private Long Pub_id;
+    private String name;
+    private String city;
 
     public Long getPub_id() {
-        return pub_id;
+        return Pub_id;
+    }
+
+    public Publisher(Long pub_id, String name, String city) {
+        Pub_id = pub_id;
+        this.name = name;
+        this.city = city;
+    }
+
+    public Publisher() {
     }
 
     public void setPub_id(Long pub_id) {
-        this.pub_id = pub_id;
+        Pub_id = pub_id;
     }
 
     public String getName() {
@@ -30,12 +39,11 @@ public class Publisher {
         this.name = name;
     }
 
-    public Address getAddress() {
-        return address;
+    public String getCity() {
+        return city;
     }
 
-    public void setAddress(Address address) {
-        this.address = address;
+    public void setCity(String city) {
+        this.city = city;
     }
-
 }
