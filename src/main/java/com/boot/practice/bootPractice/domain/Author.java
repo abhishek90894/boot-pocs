@@ -3,6 +3,7 @@ package com.boot.practice.bootPractice.domain;
 import jakarta.persistence.*;
 import org.springframework.boot.autoconfigure.web.WebProperties;
 
+import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
 
@@ -14,12 +15,12 @@ public class Author {
     private String firstName;
     private String lastname;
     @ManyToMany(mappedBy = "authors")
-    private Set<Book> book;
+    private Set<Book> book = new HashSet<>();
 
-    public Author(String firstName, String lastname, Set<Book> book) {
+    public Author(String firstName, String lastname) {
         this.firstName = firstName;
         this.lastname = lastname;
-        this.book = book;
+
     }
     public Author()
     {
@@ -27,11 +28,11 @@ public class Author {
     }
 
 
-    public Author(Long id, String firstName, String lastname, Set<Book> book) {
+    public Author(Long id, String firstName, String lastname) {
         this.id = id;
         this.firstName = firstName;
         this.lastname = lastname;
-        this.book = book;
+
     }
 
     public Long getId() {

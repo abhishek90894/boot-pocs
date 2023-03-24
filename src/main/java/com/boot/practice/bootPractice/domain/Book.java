@@ -2,6 +2,7 @@ package com.boot.practice.bootPractice.domain;
 
 import jakarta.persistence.*;
 
+import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
 @Entity
@@ -14,22 +15,21 @@ public class Book {
     @ManyToMany
     @JoinTable(name = "authors_books", joinColumns = @JoinColumn(name ="books_id"),
        inverseJoinColumns = @JoinColumn(name ="authors_id"))
-    private Set<Author> authors;
+    private Set<Author> authors = new HashSet<>();
 
     public Book() {
     }
 
-    public Book(Long id, String title, String isbn, Set<Author> authors) {
+    public Book(Long id, String title, String isbn) {
         this.id = id;
         this.title = title;
         this.isbn = isbn;
-        this.authors = authors;
     }
 
-    public Book(String title, String isbn, Set<Author> authors) {
+    public Book(String title, String isbn) {
         this.title = title;
         this.isbn = isbn;
-        this.authors = authors;
+
     }
 
     public String getTitle() {
