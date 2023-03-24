@@ -46,4 +46,6 @@ public class Publisher {
     public void setCity(String city) {
         this.city = city;
     }
+
+    
 }
